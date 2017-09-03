@@ -28,11 +28,11 @@ awk -f changeInterface.awk <interfaces file> <device=ethX>
 #### Usage Examples:
 **Configure network device _eth0_ to DHCP mode**
 ```
-awk -f changeInterfaces.awk /etc/network/interfaces device=eth0 mode=dhcp
+awk -f changeInterface.awk /etc/network/interfaces device=eth0 mode=dhcp
 ```
 **Add a network device _p3p1_ with static settings**
 ```
-awk -f changeInterfaces.awk /etc/network/interfaces device=p3p1 action=add mode=static address=192.168.202.1 netmask=255.255.255.0 gateway=192.168.202.254
+awk -f changeInterface.awk /etc/network/interfaces device=p3p1 action=add mode=static address=192.168.202.1 netmask=255.255.255.0 gateway=192.168.202.254
 ```
 If _p3p1_ already exists and configured as DHCP, it will automatically modify to static interface with all the input settings.
 
@@ -40,12 +40,12 @@ If _p3p1_ already exists and configured as static, it will overwrite the existin
 
 **Delete an interface entry**
 ```
-awk -f changeInterfaces.awk /etc/network/interfaces device=eth1 action=remove 
+awk -f changeInterface.awk /etc/network/interfaces device=eth1 action=remove 
 ```
 
 **Remove `network` & `broadcast` fields and add (or modify if exists) `dns-nameservers` & `foo` fields**
 ```
-awk -f changeInterfaces.awk /etc/network/interfaces device=eth1 mode=static network= broadcast= foo=bar 'dns-nameservers=10.0.10.1 192.168.200.5 192.168.202.254'
+awk -f changeInterface.awk /etc/network/interfaces device=eth1 mode=static network= broadcast= foo=bar 'dns-nameservers=10.0.10.1 192.168.200.5 192.168.202.254'
 ```
 ### Read Interfaces Script (readInterfaces.awk)
 Here is the standard usage for readInterface.awk:
